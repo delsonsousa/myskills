@@ -31,8 +31,9 @@ export function Home() {
 
   useEffect(() => {
     const currentHour = new Date().getHours();
-    if(currentHour < 12) {
-      setGretting('Good morging');
+
+    if(currentHour <= 12) {
+      setGretting('Good morning');
     } else if(currentHour >= 12 && currentHour < 18) {
       setGretting('Good efternoon');
     } else {
@@ -42,12 +43,16 @@ export function Home() {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.title}>
         Welcome, Delson
       </Text>
+
       <Text style={styles.greeting}>
-        {greeting}
+        {/* { greeting } */}
+        Good morning
       </Text>
+      
       <TextInput
         style={styles.input}
         placeholder="New Skill"
@@ -57,7 +62,7 @@ export function Home() {
 
       <Button 
         title="Add"
-        onPress={handleAddNewSkill}
+        onPress={ handleAddNewSkill }
       />
 
       <Text style={[styles.title, { marginVertical: 40}]}>
@@ -65,12 +70,13 @@ export function Home() {
       </Text>
 
       <FlatList 
-        data={mySkills}
+        data={ mySkills }
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <SkillCard skill={item.name} />
+          <SkillCard skill={ item.name } />
         )}
       />
+
     </View>
 
   );
