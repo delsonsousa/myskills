@@ -32,10 +32,10 @@ export function Home() {
   useEffect(() => {
     const currentHour = new Date().getHours();
 
-    if(currentHour <= 12) {
+    if(currentHour < 12) {
       setGretting('Good morning');
     } else if(currentHour >= 12 && currentHour < 18) {
-      setGretting('Good efternoon');
+      setGretting('Good afternoon');
     } else {
       setGretting('Good night');
     }
@@ -49,8 +49,7 @@ export function Home() {
       </Text>
 
       <Text style={styles.greeting}>
-        {/* { greeting } */}
-        Good morning
+        { greeting }
       </Text>
       
       <TextInput
